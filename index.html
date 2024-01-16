@@ -56,13 +56,16 @@
 
         const configureClient = async () => {
             const config = {
-                "domain": "ifoodds-staging.us.auth0.com",
-                "clientId": "lz8WYU1JAt12BcNgYG94n59CLHSvTbpj"
+                domain: "login.staging.ifoodds.com",
+                clientId: "lz8WYU1JAt12BcNgYG94n59CLHSvTbpj",
+                audience: "https://common-rbac/"
             }
             auth0Client = await auth0.createAuth0Client({
                 domain: config.domain,
                 clientId: config.clientId,
-                audience: config.audience
+                authorizationParams: {
+                    audience: config.audience
+                }
             });
         };
 
